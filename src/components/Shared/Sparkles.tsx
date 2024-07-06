@@ -39,7 +39,6 @@ export const SparklesCore = (props: ParticlesProps) => {
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
-      console.log(container);
       controls.start({
         opacity: 1,
         transition: {
@@ -48,6 +47,10 @@ export const SparklesCore = (props: ParticlesProps) => {
       });
     }
   };
+
+  useEffect(() => {
+    console.log("how many times", init);
+  }, [init]);
 
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>

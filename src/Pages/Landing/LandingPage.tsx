@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import Almonds from "../../assets/Images/almond.png";
+import { useEffect } from "react";
 import { SparklesCore } from "../../components/Shared/Sparkles";
 
 export function LandingPage() {
+  useEffect(() => {
+    console.log("how many times");
+  }, []);
   return (
-    <main className="h-screen w-screen bg-black overflow-hidden select-none pointer-events-none text-white">
-      <div className="p-4">
-        <img src={Almonds} alt="icon-almonds" className="h-12 w-12" />
-      </div>
-      <div className="w-full h-4/5 flex flex-col items-center justify-center">
+    <main className="h-[calc(100vh-4rem)]  w-screen bg-primaryBlack overflow-hidden select-none pointer-events-none text-white">
+      <div className="w-full h-full flex flex-col items-center justify-center">
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -23,14 +23,15 @@ export function LandingPage() {
 
           <SparklesCore
             background="transparent"
-            minSize={0.4}
+            minSize={0.5}
+            speed={1}
             maxSize={1}
             particleDensity={1200}
             className="w-full h-full"
             particleColor="#FFFFFF"
           />
 
-          <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          <div className="absolute inset-0 w-full h-full bg-primaryBlack [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
 
           <motion.h3
             className="text-center pt-20"
@@ -70,6 +71,9 @@ export function LandingPage() {
 }
 
 const LinearGradient = () => {
+  useEffect(() => {
+    console.log("how many times");
+  }, []);
   return (
     <>
       <motion.div
