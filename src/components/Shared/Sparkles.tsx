@@ -48,9 +48,6 @@ export const SparklesCore = (props: ParticlesProps) => {
     }
   };
 
-  useEffect(() => {
-    console.log("how many times", init);
-  }, [init]);
 
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>

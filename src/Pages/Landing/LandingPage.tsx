@@ -3,9 +3,6 @@ import { useEffect } from "react";
 import { SparklesCore } from "../../components/Shared/Sparkles";
 
 export function LandingPage() {
-  useEffect(() => {
-    console.log("how many times");
-  }, []);
   return (
     <main className="h-[calc(100vh-4rem)]  w-screen bg-primaryBlack overflow-hidden select-none pointer-events-none text-white">
       <div className="w-full h-full flex flex-col items-center justify-center">
@@ -48,7 +45,7 @@ export function LandingPage() {
             initial="hidden"
             animate="visible"
           >
-            {"Coming Soon...".split("").map((char, index) => (
+            {"Coming soon...".split("").map((char, index) => (
               <motion.span
                 className="text-2xl font-semibold"
                 key={index}
