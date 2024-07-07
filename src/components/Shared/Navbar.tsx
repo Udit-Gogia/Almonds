@@ -4,7 +4,7 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import Almonds from "../../assets/Images/almond.png";
+import Almonds from "../../assets/Images/almonds.png";
 import { Button } from "../ui/button";
 
 export const Navbar = () => {
