@@ -12,7 +12,7 @@ export function CanvasRevealPage() {
         transition={{ duration: 2, delay: 2 }}
         className="w-1/2 relative z-20 text-center flex flex-col gap-4"
       >
-        <motion.h1 className="md:text-2xl text-3xl lg:text-6xl font-bold text-white rubik">
+        <motion.h1 className="md:text-2xl text-3xl lg:text-6xl font-bold text-[#f5f5f7] rubik">
           Crack open productivity!
         </motion.h1>
         <TextGenerateEffect
