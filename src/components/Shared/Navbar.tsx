@@ -27,10 +27,27 @@ export const Navbar = () => {
           duration: 1,
         }}
         className={cn(
-          "flex  bg-primaryBlack rounded-full dark:bg-primaryBlack p-2 "
+          "flex bg-primaryBlack rounded-full dark:bg-primaryBlack p-2 gap-2"
         )}
       >
-        <img src={Almonds} alt="icon-almonds" className="h-6 w-6" />
+        <motion.section
+          initial={{
+            width: "28px",
+          }}
+          animate={{
+            width: "fit-content",
+          }}
+          transition={{
+            duration: 0.5,
+            delay: 2,
+          }}
+          className="overflow-hidden flex gap-2"
+        >
+          <img src={Almonds} alt="icon-almonds" className="h-6 w-6" />
+          <p className="text-white rubik font-semibold text-xl pr-1">
+            Almonds.
+          </p>
+        </motion.section>
       </motion.div>
 
       <motion.div
