@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { SparklesCore } from "../../components/Shared/Sparkles";
 
 export function LandingPage() {
@@ -68,9 +67,6 @@ export function LandingPage() {
 }
 
 const LinearGradient = () => {
-  useEffect(() => {
-    console.log("how many times");
-  }, []);
   return (
     <>
       <motion.div

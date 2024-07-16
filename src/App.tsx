@@ -1,11 +1,13 @@
 import "./App.css";
+import { CanvasRevealPage } from "./components/ui/CanvasRevealPage";
 import NavLayout from "./Layouts/Shared/NavLayout";
-import { LandingPage } from "./Pages/Landing/LandingPage";
+import { AboutAlmonds } from "./Pages/AboutAlmonds/AboutAlmonds";
 
 function App() {
   return (
     <NavLayout>
-      <LandingPage />
+      <CanvasRevealPage />
+      <AboutAlmonds />
     </NavLayout>
   );
 }
