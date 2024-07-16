@@ -29,12 +29,13 @@ export function CanvasRevealPage() {
         >
           <CanvasRevealEffect
             animationSpeed={3}
+            dotSize={5}
             containerClassName="bg-sky-600"
             colors={[[125, 211, 252]]}
           />
         </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
+      <div className="absolute inset-0 [mask-image:linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)] bg-black/50 dark:bg-black/90" />
     </div>
   );
 }
