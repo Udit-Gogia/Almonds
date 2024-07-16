@@ -9,8 +9,8 @@ import { CardContainer } from "../../components/ui/3d-card";
 export const AboutAlmonds = () => {
   return (
     <main className="min-h-screen bg-black pt-28 text-[#FBFBFB]">
-      <div className="flex gap-8 mx-8">
-        <div className="basis-1/2 flex flex-col justify-evenly">
+      <div className="flex flex-col md:flex-row sm:gap-2 lg:gap-8 mx-8">
+        <div className="md:basis-1/2 flex flex-col justify-evenly">
           <motion.div
             initial={{ translateY: "25px", opacity: 0 }}
             whileInView={{ translateY: 0, opacity: 1 }}
@@ -23,11 +23,11 @@ export const AboutAlmonds = () => {
                 "transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1)",
             }}
           >
-            <h1 className="rubik text-[3.25rem] font-bold leading-[4rem] tracking-wide">
+            <h1 className="rubik text-3xl md:text-[3.25rem] font-bold lg:leading-[4rem] tracking-wide">
               Effortlessly handle Tasks and Teams{" "}
               <GradientText>with Almonds.</GradientText>
             </h1>
-            <section className="my-4 leading-8">
+            <section className="my-4 md:leading-8">
               <p className="text-[#86868b] poppins text-justify pr-8">
                 Almonds aren't just for munching! This powerhouse web tool is
                 like a superhero for teamwork, juggling tasks and projects like
@@ -48,7 +48,7 @@ export const AboutAlmonds = () => {
               transition:
                 "transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1)",
             }}
-            className="flex gap-4"
+            className="flex flex-col md:flex-row gap-4"
           >
             <AlmondFeatureCard
               title="Efficiency"
