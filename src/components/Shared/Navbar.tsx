@@ -93,6 +93,8 @@ export const Navbar = () => {
                     <LoginIcon />
                   </span>
                 }
+                fallbackRedirectUrl={"/dashboard"}
+                signUpFallbackRedirectUrl={"/dashboard"}
               />
             </Button>
           </SignedOut>

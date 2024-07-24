@@ -27,7 +27,6 @@ export function CanvasRevealPage() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           className="h-full w-full absolute inset-0"
         >
           <CanvasRevealEffect
