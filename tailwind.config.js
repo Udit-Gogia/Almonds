@@ -19,6 +19,10 @@ export const theme = {
     colors: {
       // primaryBlack: "#0B1215",
       primaryBlack: "#000",
+      primaryWhite: "#FBFBFB",
+      secondaryBlack: "#101010",
+      primaryPeach: "#ffa595",
+      primaryYellow: "#f3c259",
       beige: "#F9E4CF",
       border: "hsl(var(--border))",
       input: "hsl(var(--input))",

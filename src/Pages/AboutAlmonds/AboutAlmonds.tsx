@@ -8,7 +8,7 @@ import { CardContainer } from "../../components/ui/3d-card";
 
 export const AboutAlmonds = () => {
   return (
-    <main className="min-h-screen bg-black pt-28 text-[#FBFBFB]">
+    <main className="min-h-screen bg-black pt-28 text-primaryWhite">
       <div className="flex flex-col md:flex-row sm:gap-2 lg:gap-8 mx-8">
         <div className="md:basis-1/2 flex flex-col justify-evenly">
           <motion.div
