@@ -1,7 +1,6 @@
 import { ClerkProvider } from "@clerk/clerk-react";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
 import "./index.css";
 
 // Import your publishable key
@@ -9,6 +8,20 @@ const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
+}
+
+// Import the generated route tree
+import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -28,7 +41,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       }}
       publishableKey={PUBLISHABLE_KEY}
     >
-      <App />
+      <RouterProvider router={router} />
+
+      {/* <App /> */}
     </ClerkProvider>
   </React.StrictMode>
 );

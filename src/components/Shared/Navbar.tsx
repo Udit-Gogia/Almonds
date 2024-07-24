@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { LoginIcon } from "../../assets/Icons/login-icon";
 import Almonds from "../../assets/Images/almonds.png";
+import { routeAddress } from "../../constants/routeAddress";
 import { cn } from "../../lib/util";
 import { Button } from "../ui/button";
 export const Navbar = () => {
@@ -93,8 +94,8 @@ export const Navbar = () => {
                     <LoginIcon />
                   </span>
                 }
-                fallbackRedirectUrl={"/dashboard"}
-                signUpFallbackRedirectUrl={"/dashboard"}
+                fallbackRedirectUrl={routeAddress.tasks.dashboard}
+                signUpFallbackRedirectUrl={routeAddress.tasks.dashboard}
               />
             </Button>
           </SignedOut>
