@@ -1,5 +1,9 @@
+import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
+import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
+import { routeAddress } from "../../constants/routeAddress";
 import "../../index.css";
+import { CircularButton } from "../Buttons/CircularButton/CircularButton";
 import { CanvasRevealEffect } from "./canvas-reveal-effect";
 import { TextGenerateEffect } from "./textGenerateEffect";
 
@@ -22,6 +26,25 @@ export function CanvasRevealPage() {
           className="text-neutral-200 text-2xl poppins font-light"
           words="The ultimate tool for streamlined task management and team collaboration. Assign tasks, track progress, and boost your team's efficiency — all in one place."
         />
+        <SignedIn>
+          <Link to="/tasks/dashboard">
+            <section className="mt-8">
+              <CircularButton label="Dashboard" />
+            </section>
+          </Link>
+        </SignedIn>
+        <SignedOut>
+          <SignInButton
+            mode="modal"
+            children={
+              <section className="mt-8">
+                <CircularButton label="Start cracking..." />
+              </section>
+            }
+            fallbackRedirectUrl={routeAddress.tasks.dashboard}
+            signUpFallbackRedirectUrl={routeAddress.tasks.dashboard}
+          />
+        </SignedOut>
       </motion.div>
       <AnimatePresence>
         <motion.div
@@ -31,7 +54,7 @@ export function CanvasRevealPage() {
         >
           <CanvasRevealEffect
             animationSpeed={3}
-            dotSize={5}
+            dotSize={4}
             containerClassName="bg-sky-600"
             colors={[[125, 211, 252]]}
           />
