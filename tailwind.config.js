@@ -19,7 +19,7 @@ export const theme = {
     colors: {
       // primaryBlack: "#0B1215",
       primaryBlack: "#000",
-      primaryWhite: "#FBFBFB",
+      primaryWhite: "#F5F3F1",
       secondaryBlack: "#101010",
       primaryPeach: "#ffa595",
       primaryYellow: "#f3c259",

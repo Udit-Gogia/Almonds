@@ -5,12 +5,14 @@ import {
   UserButton,
   useUser,
 } from "@clerk/clerk-react";
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { LoginIcon } from "../../assets/Icons/login-icon";
 import Almonds from "../../assets/Images/almonds.png";
-import { routeAddress } from "../../constants/routeAddress";
+import { ROUTE_ADDRESS } from "../../constants/routeAddress";
 import { cn } from "../../lib/util";
 import { Button } from "../ui/button";
+
 export const Navbar = ({
   showUserProfile = true,
 }: {
@@ -18,7 +20,7 @@ export const Navbar = ({
 }) => {
   const { isSignedIn } = useUser();
   return (
-    <div className="flex justify-between items-center w-screen fixed top-4 z-[5000] px-4">
+    <div className="flex justify-between items-center w-screen fixed top-4 z-[5000] pl-4 pr-6">
       <motion.div
         initial={{
           opacity: 1,
@@ -46,11 +48,11 @@ export const Navbar = ({
             duration: 0.5,
             delay: 2,
           }}
-          className="overflow-hidden flex gap-4"
+          className="overflow-hidden flex gap-2"
         >
-          <img src={Almonds} alt="icon-almonds" className="h-6 w-6 mx-1" />
+          <img src={Almonds} alt="icon-almonds" className="h-6 w-6 ml-1" />
           <p className="text-white rubik font-semibold text-xl pr-1">
-            Almonds.
+            <Link to="/">Almonds.</Link>
           </p>
         </motion.section>
       </motion.div>
@@ -100,8 +102,8 @@ export const Navbar = ({
                     <LoginIcon />
                   </span>
                 }
-                fallbackRedirectUrl={routeAddress.tasks.dashboard}
-                signUpFallbackRedirectUrl={routeAddress.tasks.dashboard}
+                fallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
+                signUpFallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
               />
             </Button>
           </SignedOut>

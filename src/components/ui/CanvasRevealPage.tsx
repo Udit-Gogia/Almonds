@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import { routeAddress } from "../../constants/routeAddress";
+import { ROUTE_ADDRESS } from "../../constants/routeAddress";
 import "../../index.css";
 import { CircularButton } from "../Buttons/CircularButton/CircularButton";
 import { CanvasRevealEffect } from "./canvas-reveal-effect";
@@ -38,11 +38,11 @@ export function CanvasRevealPage() {
             mode="modal"
             children={
               <section className="mt-8">
-                <CircularButton label="Start cracking..." />
+                <CircularButton label="Get sta  rted..." />
               </section>
             }
-            fallbackRedirectUrl={routeAddress.tasks.dashboard}
-            signUpFallbackRedirectUrl={routeAddress.tasks.dashboard}
+            fallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
+            signUpFallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
           />
         </SignedOut>
       </motion.div>

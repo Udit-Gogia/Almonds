@@ -105,7 +105,7 @@ export const AboutAlmonds = () => {
 };
 
 const GradientText = styled.span`
-  background: linear-gradient(220.55deg, #5d85a6 0%, #0e2c5e 100%);
+  background: linear-gradient(270deg, #0e2c5e 0%, #5d85a6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   font-family: "Sintony", sans-serif;

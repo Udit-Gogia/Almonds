@@ -1,12 +1,12 @@
 import "./App.css";
-import { CanvasRevealPage } from "./components/ui/CanvasRevealPage";
 import NavLayout from "./Layouts/Shared/NavLayout";
 import { AboutAlmonds } from "./Pages/AboutAlmonds/AboutAlmonds";
+import { LandingPage } from "./Pages/Landing/LandingPage";
 
 function App() {
   return (
     <NavLayout>
-      <CanvasRevealPage />
+      <LandingPage />
       <AboutAlmonds />
     </NavLayout>
   );
