@@ -1,4 +1,4 @@
-import { SignOutButton } from "@clerk/clerk-react";
+import { SignOutButton, useAuth } from "@clerk/clerk-react";
 import { Link } from "@tanstack/react-router";
 import { LogoutIcon } from "../../assets/Icons/logout-icon";
 import { SettingsIcon } from "../../assets/Icons/settings-icon";
@@ -6,6 +6,7 @@ import { ROUTE_ADDRESS } from "../../constants/routeAddress";
 import { SidebarOptions } from "../../constants/sidebarOptions";
 
 export const Sidebar = () => {
+  const { signOut } = useAuth();
   return (
     <div className="min-h-screen w-fit bg-primaryBlack p-4 pt-20 flex flex-col justify-between">
       <section className="flex flex-col ">
@@ -31,6 +32,7 @@ export const Sidebar = () => {
             IconComponent={LogoutIcon}
             label="Logout"
             selected={false}
+            onClick={() => signOut({ redirectUrl: ROUTE_ADDRESS.landing })}
           />
         </SignOutButton>
       </section>
@@ -42,7 +44,9 @@ const SideBarOption = ({
   selected,
   label,
   IconComponent,
+  onClick,
 }: {
+  onClick?: () => void;
   selected: boolean;
   label: string;
   IconComponent: () => JSX.Element;
@@ -50,6 +54,7 @@ const SideBarOption = ({
   return (
     <div
       className={` rounded-2xl pl-3 p-4 ${selected ? "bg-secondaryBlack" : "bg-primaryBlack"} hover:bg-secondaryBlack transition-all duration-200 flex items-center gap-3 pr-12 cursor-pointer`}
+      onClick={onClick}
     >
       <section className="w-6 flex justify-center">
         <IconComponent />

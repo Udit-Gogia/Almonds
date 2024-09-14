@@ -6,9 +6,11 @@ import { cn } from "../../lib/util";
 export const TextGenerateEffect = ({
   words,
   className,
+  customDelay,
 }: {
   words: string;
   className?: string;
+  customDelay?: number;
 }) => {
   const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
@@ -20,10 +22,10 @@ export const TextGenerateEffect = ({
       },
       {
         duration: 2,
-        delay: stagger(0.2, { startDelay: 2.5 }),
+        delay: stagger(0.2, { startDelay: customDelay ?? 2.5 }),
       }
     );
-  }, [animate]);
+  }, [animate, customDelay]);
 
   const renderWords = () => {
     return (
@@ -40,11 +42,9 @@ export const TextGenerateEffect = ({
   };
 
   return (
-    <div className={cn("font-bold", className)}>
+    <div className={cn("font-bold text-2xl", className)}>
       <div className="mt-4">
-        <div className=" text-2xl leading-snug tracking-wide">
-          {renderWords()}
-        </div>
+        <div className="  leading-snug tracking-wide">{renderWords()}</div>
       </div>
     </div>
   );

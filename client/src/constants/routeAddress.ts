@@ -1,5 +1,6 @@
 export const ROUTE_ADDRESS = {
-  landing: "/logoutkrdia",
+  landing: "/",
+  welcome: "/welcome",
   tasks: {
     dashboard: "/tasks/dashboard",
   },

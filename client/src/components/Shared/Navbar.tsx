@@ -102,8 +102,8 @@ export const Navbar = ({
                     <LoginIcon />
                   </span>
                 }
-                fallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
-                signUpFallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
+                fallbackRedirectUrl={ROUTE_ADDRESS.welcome}
+                signUpFallbackRedirectUrl={ROUTE_ADDRESS.welcome}
               />
             </Button>
           </SignedOut>
