@@ -1,49 +1,50 @@
 import { useRouter } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
-import {
-  MultiStepLoader as Loader,
-  LoadingState,
-} from "../../components/ui/multi-step-loader";
+import { MultiStepLoader as Loader } from "../../components/ui/multi-step-loader";
 import { TextGenerateEffect } from "../../components/ui/textGenerateEffect";
+import { LOADING_STATES } from "../../constants/welcomePageLoadingStates";
+import { useUserAuthHook } from "../../hooks/userAuthHook";
 
 export default function Welcome() {
   const [loading, setLoading] = useState(false);
+  const [isUserAvailable, setIsUserAvailable] = useState(false);
+
+  const { processUserAuthentication, user } = useUserAuthHook();
+  const { navigate } = useRouter();
 
   useEffect(() => {
     setLoading(true);
-  }, []);
 
-  const { navigate } = useRouter();
+    processUserAuthentication().then((res) => setIsUserAvailable(res));
+  }, [processUserAuthentication]);
 
   const handleToggleLoadingState = useCallback(() => {
-    setTimeout(() => {
-      navigate({ to: "/tasks/dashboard" });
-    }, 3000);
-  }, [navigate]);
+    if (isUserAvailable)
+      setTimeout(() => {
+        navigate({ to: "/tasks/dashboard" });
+      }, 1000);
+  }, [isUserAvailable, navigate]);
 
-  const loadingStates: LoadingState[] = [
-    {
-      text: "Starting up the process...",
-    },
-    {
-      text: "Gathering the almonds...",
-    },
-    {
-      text: "Fueling up your productivity engine..",
-    },
-    {
-      text: "Almost there, let's get cracking!",
-    },
-  ];
+  if (!user) {
+    return <div className="bg-primaryBlack h-screen flex flex-col"></div>;
+  }
 
   return (
     <AnimatePresence mode="wait">
-      <div className="bg-primaryBlack  flex flex-col ">
-        <div className="w-full h-screen flex flex-col items-center justify-center gap-8">
+      <div className="bg-primaryBlack  flex flex-col">
+        <motion.div
+          className="w-full h-screen flex flex-col items-center justify-center gap-8"
+          exit={{
+            opacity: 0,
+            transition: {
+              duration: 1.5,
+            },
+          }}
+        >
           <div>
             <TextGenerateEffect
-              words={`"Hey, Welcome to Almonds!"`}
+              words={`Hey ${user.username}, Welcome to Almonds!`}
               customDelay={0}
               className="text-4xl font-semibold leading-[4rem] text-primaryWhite poppins"
             />
@@ -64,14 +65,14 @@ export default function Welcome() {
             }}
           >
             <Loader
-              loadingStates={loadingStates}
+              loadingStates={LOADING_STATES}
               loading={loading}
               duration={1500}
               loop={false}
               handleToggleLoadingState={handleToggleLoadingState}
             />
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </AnimatePresence>
   );
