@@ -2,8 +2,9 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import User
+from .models import User, TaskList
 from .serializers import UserSerializer
+from django.db import transaction
 
 # view is used to handle API request and response.
 # api_view is a decorator provided by DJango rest framework (DRF) for handling API view functions.
@@ -19,17 +20,38 @@ def check_or_create_user(request):
     if not clerk_id or not username or not email:
         return Response({'error': 'clerk_id, name, and email are required'}, status=status.HTTP_400_BAD_REQUEST)
 
-    # this function will return the user object and a boolean value that tells if the user was created for only data was retrieved
-    user, created = User.objects.get_or_create(clerk_id = clerk_id, defaults = {
-        'username' : username,
-        'email' : email,
-        'clerk_id' : clerk_id
-    })
+    try:
+        # transaction.atomic() is used to ensure that set of db operations are executed as a single unit.
+        # here everything inside the with block is either executed completed are reverted if an error occurs at any point
+        # atomicity means set of operations - either all succeed or none is applied
+        with transaction.atomic():
+            user, new_user_created = User.objects.get_or_create(clerk_id = clerk_id, defaults = {
+                'username' : username,
+                'email' : email,
+                'clerk_id' : clerk_id
+            })
 
-    if (created):
-        return Response(UserSerializer(user).data, status = status.HTTP_201_CREATED)
-    else:
-        return Response(UserSerializer(user).data, status = status.HTTP_200_OK)
+            if (new_user_created):
+                # If a new user is created, it is important to create another record in task list relation with default values
+                task_list_created  = TaskList.objects.create(user = user)
 
+                if (task_list_created):
+                    return Response(UserSerializer(user).data, status = status.HTTP_200_OK)
+                else:
+                    # if a user was created but task list was not created then the user should be deleted
+                    user.delete()
+                    return Response({'error' : 'Failed to create task list for new user'},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            else:
+                # New user was not created
+                return Response(UserSerializer(user).data, status = status.HTTP_200_OK)
+
+    except Exception as err:
+        return Response({'error' : str(err)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     
+@api_view(['POST'])
+def task_dashboard(request):
+    clerk_id = request.body.get('clerk_id')
+
+    if not clerk_id:
+        return Response({'error' : 'clerk_id is required'}, status = status.HTTP_400_BAD_REQUEST)
