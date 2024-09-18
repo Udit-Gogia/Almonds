@@ -1,15 +1,15 @@
-import { useAuth, useUser } from "@clerk/clerk-react";
-import { Navbar } from "../../../components/Shared/Navbar";
+import { AnimatePresence } from "framer-motion";
 import { Sidebar } from "../../../components/Shared/Sidebar";
+import { DashboardCentralPanel } from "./CentralPanel";
 
 export const TasksDashboard = () => {
-  const { user } = useUser();
-  const { userId, sessionId } = useAuth();
-  console.log("this is user data ", user, userId, sessionId);
   return (
-    <div className="bg-secondaryBlack min-h-screen text-primaryWhite">
-      <Navbar showUserProfile={false} />
-      <Sidebar />
-    </div>
+    <AnimatePresence mode="wait">
+      <div className="bg-primaryBlack min-h-screen text-primaryWhite p-4 flex gap-4">
+        <Sidebar />
+        <DashboardCentralPanel />
+        <Sidebar />
+      </div>
+    </AnimatePresence>
   );
 };

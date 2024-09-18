@@ -21,44 +21,11 @@ export const Navbar = ({
   const { isSignedIn } = useUser();
   return (
     <div className="flex justify-between items-center w-screen fixed top-4 z-[5000] pl-4 pr-6">
-      <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        className={cn(
-          "flex bg-primaryBlack rounded-full dark:bg-primaryBlack p-2 gap-2"
-        )}
-      >
-        <motion.section
-          initial={{
-            width: "28px",
-          }}
-          animate={{
-            width: "fit-content",
-          }}
-          transition={{
-            duration: 0.5,
-            delay: 2,
-          }}
-          className="overflow-hidden flex gap-2"
-        >
-          <img src={Almonds} alt="icon-almonds" className="h-6 w-6 ml-1" />
-          <p className="text-white rubik font-semibold text-xl pr-1">
-            <Link to="/">Almonds.</Link>
-          </p>
-        </motion.section>
-      </motion.div>
+      <AlmondsLogo />
 
       {showUserProfile && (
         <motion.div
+          className="mr-4"
           initial={{
             opacity: 1,
             y: -100,
@@ -102,13 +69,53 @@ export const Navbar = ({
                     <LoginIcon />
                   </span>
                 }
-                fallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
-                signUpFallbackRedirectUrl={ROUTE_ADDRESS.tasks.dashboard}
+                fallbackRedirectUrl={ROUTE_ADDRESS.welcome}
+                signUpFallbackRedirectUrl={ROUTE_ADDRESS.welcome}
               />
             </Button>
           </SignedOut>
         </div>
       )}
     </div>
+  );
+};
+
+export const AlmondsLogo = ({ hideLabel = false }: { hideLabel?: boolean }) => {
+  return (
+    <motion.div
+      initial={{
+        opacity: 1,
+        y: -100,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      className={cn("flex  rounded-full  p-2 gap-2")}
+    >
+      <motion.section
+        initial={{
+          width: "30px",
+        }}
+        animate={{
+          width: "fit-content",
+        }}
+        transition={{
+          duration: 0.5,
+          delay: 2,
+        }}
+        className="overflow-hidden flex gap-2 items-center"
+      >
+        <img src={Almonds} alt="icon-almonds" className="h-6 w-6 " />
+        {!hideLabel && (
+          <p className="text-white sub-heading  text-2xl ">
+            <Link to="/">Almonds.</Link>
+          </p>
+        )}
+      </motion.section>
+    </motion.div>
   );
 };

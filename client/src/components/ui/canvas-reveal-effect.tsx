@@ -56,7 +56,7 @@ interface DotMatrixProps {
   center?: ("x" | "y")[];
 }
 
-const DotMatrix: React.FC<DotMatrixProps> = ({
+export const DotMatrix: React.FC<DotMatrixProps> = ({
   colors = [[0, 0, 0]],
   opacities = [0.04, 0.04, 0.04, 0.04, 0.04, 0.08, 0.08, 0.08, 0.08, 0.14],
   totalSize = 4,

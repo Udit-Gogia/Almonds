@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 // import { GraphIcon } from "../../assets/Icons/graph-icon";
-import { GitBranch } from "../../assets/Icons/git-branch";
 import GraphIcon from "../../assets/Icons/graph-icon";
 import Colaboration from "../../assets/Images/colab.png";
 import { CardContainer } from "../../components/ui/3d-card";
+import { ABOUT_ALMONDS_FEATURE_LIST } from "../../constants/almonds-content";
+import { IAboutAlmondsFeature } from "../../interfaces/user.interface";
 
 export const AboutAlmonds = () => {
   return (
@@ -22,13 +23,14 @@ export const AboutAlmonds = () => {
               transition:
                 "transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1)",
             }}
+            // className="sm:mb-2 lg:mb-0"
           >
-            <h1 className="rubik text-3xl md:text-[3.25rem] font-bold lg:leading-[4rem] tracking-wide">
+            <h1 className="sub-heading text-3xl md:text-[3.25rem] lg:leading-[4rem] tracking-wide selection:text-primaryYellow">
               Effortlessly handle Tasks and Teams{" "}
               <GradientText>with Almonds.</GradientText>
             </h1>
-            <section className="my-4 md:leading-8">
-              <p className="text-[#86868b] poppins text-justify pr-8">
+            <section className="my-4 mt-8 md:leading-8 text-lg">
+              <p className="text-primaryGray text-content text-justify pr-8 selection:text-primaryBlue">
                 Almonds aren't just for munching! This powerhouse web tool is
                 like a superhero for teamwork, juggling tasks and projects like
                 a pro. Its user-friendly design is the secret sauce to turning
@@ -50,36 +52,9 @@ export const AboutAlmonds = () => {
             }}
             className="flex flex-col md:flex-row gap-4"
           >
-            <div
-              className={`bg-[#101010] p-4 rounded-lg basis-1/2 flex flex-col gap-4 `}
-            >
-              <div className="flex justify-between">
-                <p className={`poppins font-semibold text-lg text-[#ffa595] `}>
-                  Efficiency
-                </p>
-                <GraphIcon strokeColor={"#ffa595"} />
-              </div>
-              <p className={`selection:text-[#ffa595] text-[#FBFBFB]`}>
-                {
-                  "Keep that organizational beat steady and keep an eagle eye on progress to make sure you hit those task goals on time and nail that awesome outcome!ess with ease, ensuring timely completion of tasks."
-                }
-              </p>
-            </div>
-            <div
-              className={`bg-[#101010] p-4 rounded-lg basis-1/2 flex flex-col gap-4 `}
-            >
-              <div className="flex justify-between">
-                <p className={`poppins font-semibold text-lg text-[#f3c259] `}>
-                  Collaboration
-                </p>
-                <GitBranch strokeColor={"#f3c259"} />
-              </div>
-              <p className={`selection:text-[#f3c259] text-[#FBFBFB]`}>
-                Creating your dream team, passing out tasks, and chatting up a
-                storm are key moves in hitting that sweet success spot as a
-                team!
-              </p>
-            </div>
+            {ABOUT_ALMONDS_FEATURE_LIST.map((feature, index) => (
+              <AboutAlmondsFeature feature={feature} index={index} />
+            ))}
           </motion.div>
         </div>
         <motion.div
@@ -93,7 +68,7 @@ export const AboutAlmonds = () => {
             transition:
               "transform 500ms cubic-bezier(0,0,0.5,1), opacity 500ms cubic-bezier(0,0,0.5,1), visibility 500ms cubic-bezier(0,0,0.5,1)",
           }}
-          className="basis-1/2"
+          className="basis-1/2 h-full"
         >
           <CardContainer>
             <img src={Colaboration} alt="img-colab" className="rounded-lg" />
@@ -104,11 +79,33 @@ export const AboutAlmonds = () => {
   );
 };
 
-const GradientText = styled.span`
-  background: linear-gradient(270deg, #0e2c5e 0%, #5d85a6 100%);
+export const GradientText = styled.span`
+  background: linear-gradient(90deg, #f3c259 0%, #ffa595 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: "Sintony", sans-serif;
   -webkit-text-fill-color: transparent;
-  display: inline-block; /* Ensures gradient applies properly */
+  display: inline-block;
 `;
+
+const AboutAlmondsFeature = ({feature,index}: { feature: IAboutAlmondsFeature, index : number }) => {
+  return (
+    <div
+      key={index}
+      className={`bg-[#101010] p-4 rounded-lg basis-1/2 flex flex-col gap-4 `}
+    >
+      <div className="flex justify-between">
+        <p
+          className={`sub-heading tracking-wider  text-lg ${feature.fontColor} selection:text-secondaryBlack selection:bg-primaryYellow`}
+        >
+          {feature.title}
+        </p>
+        <GraphIcon strokeColor={feature.iconStrokeColor} />
+      </div>
+      <p
+        className={`${feature.fontSelectionColor} text-primaryWhite button-content`}
+      >
+        {feature.body}
+      </p>
+    </div>
+  );
+};
