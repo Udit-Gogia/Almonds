@@ -7,7 +7,7 @@ export const CircularButton = ({ label }: { label: string }) => {
         <span className="circle" aria-hidden="true">
           <span className="icon arrow"></span>
         </span>
-        <span className="button-text text-neutral-200 poppins tracking-wide font-normal ">
+        <span className="button-text text-neutral-200 button-content tracking-wide font-normal ">
           {label}
         </span>
       </button>

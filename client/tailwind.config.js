@@ -26,12 +26,16 @@ export const theme = {
   extend: {
     colors: {
       // primaryBlack: "#0B1215",
-      primaryBlack: "#000",
-      secondaryBlack: "#101010",
+      primaryBlack: "#000", // #121212 | "#000"
+      secondaryBlack: "#121212", // pstel gray - #2E3138 | #27272A | #121212
       primaryWhite: "#F5F3F1",
       primaryPeach: "#ffa595",
       primaryYellow: "#f3c259",
+      pastelYellow: "rgb(255, 217, 81)",
       primaryGray: "rgb(161, 161, 170)",
+      primaryBlue: "rgb(33, 114, 255)", // pastel blue - rgb(33, 114, 255) | #1B76FF
+      primaryGreen: "#39C24A",
+      primaryRed: "rgb(255, 91, 81)", // rgb(202, 0, 0) pastel red - rgb(255, 91, 81) | #FE4A23
       beige: "#F9E4CF",
       border: "hsl(var(--border))",
       input: "hsl(var(--input))",

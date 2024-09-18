@@ -23,13 +23,13 @@ export function LandingPage() {
           >
             <div className=" mx-auto flex flex-col justify-center gap-4">
               <motion.h1
-                className="sm:w-[80vw] lg:w-[50vw] text-4xl lg:text-6xl font-bold text-[#f5f5f7] rubik  
+                className="sm:w-[80vw] lg:w-[50vw] sub-heading  text-4xl lg:text-6xl font-bold text-[#f5f5f7]   
         "
               >
                 Crack open productivity!
               </motion.h1>
               <TextGenerateEffect
-                className="text-neutral-200 text-2xl poppins font-light sm:w-[80vw] lg:w-[50vw]"
+                className="text-neutral-200 text-2xl button-content tracking-tight font-light sm:w-[80vw] lg:w-[50vw]"
                 words="The ultimate tool for streamlined task management and team collaboration. Assign tasks, track progress, and boost your team's efficiency — all in one place."
               />
               <SignedIn>

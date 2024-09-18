@@ -1,14 +1,15 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { Navbar } from "../../../components/Shared/Navbar";
+import { AnimatePresence } from "framer-motion";
 import { Sidebar } from "../../../components/Shared/Sidebar";
+import { DashboardCentralPanel } from "./CentralPanel";
 
 export const TasksDashboard = () => {
   return (
     <AnimatePresence mode="wait">
-      <motion.div className="bg-secondaryBlack min-h-screen text-primaryWhite">
-        <Navbar showUserProfile={false} />
+      <div className="bg-primaryBlack min-h-screen text-primaryWhite p-4 flex gap-4">
         <Sidebar />
-      </motion.div>
+        <DashboardCentralPanel />
+        <Sidebar />
+      </div>
     </AnimatePresence>
   );
 };

@@ -5,7 +5,7 @@ import { TeamsIcon } from "../assets/Icons/teams-icon";
 interface ISideBarOption {
   to: string;
   label: string;
-  IconComponent: () => JSX.Element;
+  IconComponent: ({ strokeColor }: { strokeColor: string }) => JSX.Element;
 }
 
 export const SidebarOptions: ISideBarOption[] = [

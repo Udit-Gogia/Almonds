@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.2.7",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.2",
     "@react-three/fiber": "^8.16.8",
     "@tabler/icons-react": "^3.16.0",
     "@tanstack/react-router": "^1.45.8",
@@ -29,6 +31,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-slot-counter": "^3.0.1",
     "styled-components": "^6.1.11",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",

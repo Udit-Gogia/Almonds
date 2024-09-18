@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 import { MultiStepLoader as Loader } from "../../components/ui/multi-step-loader";
 import { TextGenerateEffect } from "../../components/ui/textGenerateEffect";
-import { LOADING_STATES } from "../../constants/welcomePageLoadingStates";
+import { LOADING_STATES } from "../../constants/almonds-content";
 import { useUserAuthHook } from "../../hooks/userAuthHook";
 
 export default function Welcome() {
