@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import SearchIcon from "../../assets/Icons/search-icon";
 import { cn } from "../../lib/util";
+import { Separator } from "./separator";
 
 export function PlaceholdersAndVanishInput({
   placeholders,
@@ -182,14 +183,14 @@ export function PlaceholdersAndVanishInput({
   return (
     <form
       className={cn(
-        "w-full relative max-w-xl mx-auto bg-secondaryBlack text-primaryWhite h-12 rounded-2xl overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
+        "w-full relative  mx-auto bg-secondaryBlack p-2 text-primaryWhite rounded-xl overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200",
         value && "bg-secondaryBlack"
       )}
       onSubmit={handleSubmit}
     >
       <canvas
         className={cn(
-          "absolute pointer-events-none text-primaryWhite button-content text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert dark:invert-0 pr-20",
+          "absolute pointer-events-none text-primaryWhite button-content text-base transform scale-50 top-[20%] origin-top-left filter invert dark:invert-0 pr-20",
           !animating ? "opacity-0" : "opacity-100"
         )}
         ref={canvasRef}
@@ -206,18 +207,26 @@ export function PlaceholdersAndVanishInput({
         value={value}
         type="text"
         className={cn(
-          "w-full relative text-sm sm:text-base z-50 border-none text-primaryWhite bg-transparent h-full rounded-full focus:outline-none focus:ring-0 pl-4 sm:pl-10 pr-20",
+          "w-full relative text-sm sm:text-base button-content z-50 border-none text-primaryWhite bg-transparent h-full rounded-full focus:outline-none focus:ring-0 pl-2 pr-8",
           animating && "text-transparent dark:text-transparent"
         )}
       />
 
-      <button
-        disabled={!value}
-        type="submit"
-        className={`absolute right-2 top-1/2 z-50 -translate-y-1/2 h-5 w-5 rounded-full  dark:bg-primaryBlack hover:bg-primaryBlack text-primaryWhite ${!value && "hover:cursor-not-allowed"} transition duration-200 flex items-center justify-center`}
-      >
-        <SearchIcon strokeColor="rgb(179, 179, 179)" />
-      </button>
+      <div className="flex gap-2 absolute right-4 top-1/2 z-50 -translate-y-1/2">
+        <button
+          disabled={!value}
+          type="submit"
+          className={`  h-4 w-4 rounded-full  dark:bg-primaryBlack hover:bg-primaryBlack text-primaryWhite ${!value && "hover:cursor-not-allowed"} transition duration-200 flex items-center justify-center`}
+        >
+          <SearchIcon strokeColor="rgb(179, 179, 179)" />
+        </button>
+        <div className="flex gap-2">
+          <Separator orientation="vertical" className="bg-borderGrey z-50 " />
+          <kbd className="pointer-events-none inline-flex !bg-borderGrey h-5 select-none items-center gap-1 rounded border border-borderGrey px-1.5 button-content text-[10px] font-medium text-neutral-500 opacity-100">
+            <span className="text-sm">Cltr </span>/
+          </kbd>
+        </div>
+      </div>
 
       <div className="absolute inset-0 flex items-center rounded-full pointer-events-none">
         <AnimatePresence mode="wait">
@@ -240,7 +249,7 @@ export function PlaceholdersAndVanishInput({
                 duration: 0.3,
                 ease: "linear",
               }}
-              className="dark:text-zinc-500 text-sm sm:text-base font-normal text-neutral-500 pl-4 sm:pl-12 text-left w-[calc(100%-2rem)] truncate"
+              className=" text-sm sm:text-base font-normal text-neutral-500 button-content pl-4 text-left w-[calc(100%-2rem)] truncate"
             >
               {placeholders[currentPlaceholder]}
             </motion.p>

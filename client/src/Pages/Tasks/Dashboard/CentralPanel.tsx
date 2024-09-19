@@ -7,7 +7,7 @@ export const DashboardCentralPanel = () => {
     <div className="flex flex-col gap-4 w-full">
       <DashboardHeader />
       <section>
-        <div className="rounded-2xl w-full grid md:auto-rows-[42vh] grid-cols-1 md:grid-cols-3 gap-4 bg-primaryBlack justify-between">
+        <div className="rounded-2xl w-full grid md:auto-rows-[41vh] grid-cols-1 md:grid-cols-3 gap-4 bg-primaryBlack justify-between">
           <div className="mt-8">
             <TaskCounts />
           </div>

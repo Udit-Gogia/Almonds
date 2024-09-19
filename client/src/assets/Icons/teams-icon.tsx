@@ -1,4 +1,8 @@
-export const TeamsIcon = ({ strokeColor }: { strokeColor: string }) => (
+export const TeamsIcon = ({
+  strokeColor = "white",
+}: {
+  strokeColor?: string;
+}) => (
   <svg
     width="20"
     height="20"

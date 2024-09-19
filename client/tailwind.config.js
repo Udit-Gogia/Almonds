@@ -28,6 +28,7 @@ export const theme = {
       // primaryBlack: "#0B1215",
       primaryBlack: "#000", // #121212 | "#000"
       secondaryBlack: "#121212", // pstel gray - #2E3138 | #27272A | #121212
+      borderGrey: "#27272a",
       primaryWhite: "#F5F3F1",
       primaryPeach: "#ffa595",
       primaryYellow: "#f3c259",

@@ -65,7 +65,7 @@ const SideBarOption = ({
 }) => {
   return (
     <motion.div
-      className={`group/bento  rounded-2xl  p-2 text-sm ${selected ? "bg-primaryBlack" : "bg-secondaryBlack"} text-primaryWhite  flex items-center gap-3  cursor-pointer`}
+      className={`group/bento rounded-2xl p-2 text-sm ${selected ? "bg-primaryBlack" : "bg-secondaryBlack"} text-primaryWhite  flex items-center gap-3  cursor-pointer`}
       onClick={onClick}
     >
       <TooltipProvider>

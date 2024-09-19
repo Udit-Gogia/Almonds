@@ -95,7 +95,7 @@ const AboutAlmondsFeature = ({feature,index}: { feature: IAboutAlmondsFeature, i
     >
       <div className="flex justify-between">
         <p
-          className={`sub-heading tracking-wider  text-lg ${feature.fontColor} selection:text-secondaryBlack selection:bg-primaryYellow`}
+          className={`sub-heading tracking-wider  text-lg ${feature.fontColor} selection:text-secondaryBlack selection:bg-[${feature.fontSelectionColor}] `}
         >
           {feature.title}
         </p>
