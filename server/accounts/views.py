@@ -2,9 +2,11 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import User, TaskList
+from .models import User
+from tasks.models import TaskList
 from .serializers import UserSerializer
 from django.db import transaction
+
 
 # view is used to handle API request and response.
 # api_view is a decorator provided by DJango rest framework (DRF) for handling API view functions.
@@ -48,10 +50,3 @@ def check_or_create_user(request):
     except Exception as err:
         return Response({'error' : str(err)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
-    
-@api_view(['POST'])
-def task_dashboard(request):
-    clerk_id = request.body.get('clerk_id')
-
-    if not clerk_id:
-        return Response({'error' : 'clerk_id is required'}, status = status.HTTP_400_BAD_REQUEST)

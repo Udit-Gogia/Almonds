@@ -10,14 +10,16 @@ export default function Welcome() {
   const [loading, setLoading] = useState(false);
   const [isUserAvailable, setIsUserAvailable] = useState(false);
 
-  const { processUserAuthentication, user } = useUserAuthHook();
+  const { processUserAuthentication, user, fetchUserDashboardData } =
+    useUserAuthHook();
   const { navigate } = useRouter();
 
   useEffect(() => {
     setLoading(true);
 
     processUserAuthentication().then((res) => setIsUserAvailable(res));
-  }, [processUserAuthentication]);
+    fetchUserDashboardData();
+  }, [fetchUserDashboardData, processUserAuthentication]);
 
   const handleToggleLoadingState = useCallback(() => {
     if (isUserAvailable)

@@ -19,7 +19,7 @@ export const Navbar = ({
 }) => {
   const { isSignedIn } = useUser();
   return (
-    <div className="flex justify-between items-center w-screen fixed top-4 z-[5000] pl-4 pr-6">
+    <div className="flex justify-between items-center w-full fixed top-4 z-[5000] px-4 ">
       <AlmondsLogo />
 
       {showUserProfile && (
@@ -110,7 +110,7 @@ export const AlmondsLogo = ({ hideLabel = false }: { hideLabel?: boolean }) => {
       >
         <img src={Almonds} alt="icon-almonds" className="h-6 w-6 " />
         {!hideLabel && (
-          <p className="text-white sub-heading  text-2xl ">
+          <p className="text-primaryWhite sub-heading  text-2xl ">
             <Link to="/">Almonds.</Link>
           </p>
         )}

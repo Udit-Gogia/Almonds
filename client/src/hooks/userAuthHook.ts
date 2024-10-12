@@ -1,6 +1,7 @@
 import { useUser } from "@clerk/clerk-react";
 import { useCallback, useEffect, useState } from "react";
 import { IUser } from "../interfaces/user.interface";
+import { task_dashboard } from "../services/taskService";
 import { checkOrCreateUser } from "../services/userService";
 
 export const useUserAuthHook = () => {
@@ -34,5 +35,15 @@ export const useUserAuthHook = () => {
     return false;
   }, [authenticatedUser]);
 
-  return { processUserAuthentication, user };
+  const fetchUserDashboardData = useCallback(async () => {
+    try {
+      if (authenticatedUser) {
+        await task_dashboard(authenticatedUser.clerkId);
+      }
+    } catch (err) {
+      return;
+    }
+  }, [authenticatedUser]);
+
+  return { processUserAuthentication, user, fetchUserDashboardData };
 };

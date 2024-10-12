@@ -16,12 +16,12 @@ export function CanvasRevealPage({ children }: { children: ReactNode }) {
           <CanvasRevealEffect
             animationSpeed={3}
             dotSize={4}
-            containerClassName="bg-sky-600"
+            containerClassName="bg-sky-500"
             colors={[[125, 211, 252]]}
           />
         </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-0 [mask-image:linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)] bg-black/50 dark:bg-black/90" />
+      <div className="absolute inset-0 [mask-image:linear-gradient(220.55deg, #5D85A6 0%, #0E2C5E 100%)] bg-black/50 " />
     </div>
   );
 }

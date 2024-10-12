@@ -1,6 +1,8 @@
 import { ClerkProvider } from "@clerk/clerk-react";
+import { dark } from "@clerk/themes";
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import "./index.css";
 
 // Import your publishable key
@@ -28,16 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ClerkProvider
       appearance={{
-        elements: {
-          formButtonPrimary: {
-            fontSize: 14,
-            textTransform: "none",
-            backgroundColor: "#0B1215",
-            "&:hover, &:focus, &:active": {
-              backgroundColor: "#0B1215",
-            },
-          },
-        },
+        baseTheme: dark,
       }}
       publishableKey={PUBLISHABLE_KEY}
     >

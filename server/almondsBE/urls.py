@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from    accounts.views import check_or_create_user
+from accounts.views import check_or_create_user
+from tasks.views import task_dashboard
 
+# this file is responsible for maps the URL pattern to a view. It is considered as a URL dispatcher
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('check_or_create_user/', check_or_create_user, name='check_or_create_user'), 
+    path('check_or_create_user/', check_or_create_user), 
+    path('task/dashboard/', task_dashboard)
 ]

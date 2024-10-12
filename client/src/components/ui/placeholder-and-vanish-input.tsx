@@ -216,7 +216,7 @@ export function PlaceholdersAndVanishInput({
         <button
           disabled={!value}
           type="submit"
-          className={`  h-4 w-4 rounded-full  dark:bg-primaryBlack hover:bg-primaryBlack text-primaryWhite ${!value && "hover:cursor-not-allowed"} transition duration-200 flex items-center justify-center`}
+          className={`  h-4 w-4 rounded-full  text-primaryWhite ${!value && "hover:cursor-not-allowed"} transition duration-200 flex items-center justify-center`}
         >
           <SearchIcon strokeColor="rgb(179, 179, 179)" />
         </button>
@@ -249,7 +249,7 @@ export function PlaceholdersAndVanishInput({
                 duration: 0.3,
                 ease: "linear",
               }}
-              className=" text-sm sm:text-base font-normal text-neutral-500 button-content pl-4 text-left w-[calc(100%-2rem)] truncate"
+              className=" text-xs sm:text-sm font-normal text-neutral-500 text-content pl-4 text-left w-[calc(100%-2rem)] truncate"
             >
               {placeholders[currentPlaceholder]}
             </motion.p>

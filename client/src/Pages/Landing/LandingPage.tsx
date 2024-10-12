@@ -33,7 +33,7 @@ export function LandingPage() {
                 words="The ultimate tool for streamlined task management and team collaboration. Assign tasks, track progress, and boost your team's efficiency — all in one place."
               />
               <SignedIn>
-                <Link to="/tasks/dashboard">
+                <Link to="/welcome">
                   <section className="mt-8">
                     <CircularButton label="Dashboard" />
                   </section>

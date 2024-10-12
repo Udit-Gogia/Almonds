@@ -4,10 +4,10 @@ import { CARDS } from "../../../constants/almonds-content";
 
 export const DashboardCentralPanel = () => {
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-4 w-full h-full">
       <DashboardHeader />
       <section>
-        <div className="rounded-2xl w-full grid md:auto-rows-[41vh] grid-cols-1 md:grid-cols-3 gap-4 bg-primaryBlack justify-between">
+        <div className="rounded-2xl w-full grid md:auto-rows-fr h-[calc(100vh-5.5rem)] grid-cols-1 md:grid-cols-3 gap-4 bg-primaryBlack justify-between">
           <div className="mt-8">
             <TaskCounts />
           </div>

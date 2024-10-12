@@ -90,10 +90,13 @@ export const MultiStepLoader = ({
   loading,
   duration = 2000,
   loop = true,
+
   handleToggleLoadingState,
 }: {
   loadingStates: LoadingState[];
   loading?: boolean;
+  displayErrorText?: boolean;
+  errorMsg?: string;
   duration?: number;
   loop?: boolean;
   handleToggleLoadingState: () => void;
