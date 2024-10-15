@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 from accounts.views import check_or_create_user
 from tasks.views import task_dashboard
 
@@ -26,3 +30,6 @@ urlpatterns = [
     path('check_or_create_user/', check_or_create_user), 
     path('task/dashboard/', task_dashboard)
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
