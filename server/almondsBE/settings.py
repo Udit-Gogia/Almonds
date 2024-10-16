@@ -41,7 +41,7 @@ SECRET_KEY = str(env('SECRET_KEY'))
 DEBUG = bool(env('DEBUG'))
 
 
-ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(",")
 
 
 # Application definition
