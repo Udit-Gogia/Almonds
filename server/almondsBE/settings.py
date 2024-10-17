@@ -153,7 +153,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://almonds.vercel.app/",
+    "https://almonds.vercel.app",
     "http://localhost:3000", 
 ]
 
