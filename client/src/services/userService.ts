@@ -9,7 +9,6 @@ export const checkOrCreateUser = async (userData: IUser) => {
       username: userData.username,
     });
 
-    console.log("this is the api request ", resp);
 
     return resp.status;
   } catch (err) {
